@@ -10,6 +10,6 @@ class SplashPageController extends GetxController {
 
   void openHomePage() async {
     // to close all dialogs and bottom sheets
-    Get.offAllNamed(AppRoutes.HOME_PAGE);
+    Get.offAllNamed(AppRoutes.MAIN_PAGE);
   }
 }

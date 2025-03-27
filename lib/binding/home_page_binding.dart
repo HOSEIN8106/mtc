@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import 'package:mtc/controller/splash_page_controller.dart';
+import 'package:mtc/controller/home_page_controller.dart';
 
 class HomePageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<SplashPageController>(() {
-      return SplashPageController();
+    Get.lazyPut<HomePageController>(() {
+      return HomePageController();
     });
   }
 }
