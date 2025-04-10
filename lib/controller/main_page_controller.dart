@@ -7,7 +7,7 @@ import 'package:mtc/mtc_app.dart';
 import 'package:mtc/pages/class_plan_page.dart';
 import 'package:mtc/pages/home_page.dart';
 import 'package:mtc/pages/lesson_chart_page.dart';
-import 'package:mtc/pages/notifications_page.dart';
+import 'package:mtc/pages/chats_page.dart';
 import 'package:mtc/resource/constant.dart';
 
 class MainPageController extends GetxController {
@@ -17,7 +17,7 @@ class MainPageController extends GetxController {
   late Map<BottomNavigationType, Widget> bottomNavigationMap = {
     BottomNavigationType.lessonChart: LessonChartPage(),
     BottomNavigationType.classPlan: ClassPlanPage(),
-    BottomNavigationType.chats: NotificationsPage(),
+    BottomNavigationType.chats: ChatsPage(),
     BottomNavigationType.home: HomePage(),
   };
 
@@ -35,7 +35,7 @@ class MainPageController extends GetxController {
     } else if (currentPage == BottomNavigationType.classPlan.type) {
       bottomNavigationMap[BottomNavigationType.classPlan] = ClassPlanPage(key: ValueKey(Random().nextInt(255)));
     } else if (currentPage == BottomNavigationType.chats.type) {
-      bottomNavigationMap[BottomNavigationType.chats] = NotificationsPage(key: ValueKey(Random().nextInt(255)));
+      bottomNavigationMap[BottomNavigationType.chats] = ChatsPage(key: ValueKey(Random().nextInt(255)));
     } else if (currentPage == BottomNavigationType.home.type) {
       bottomNavigationMap[BottomNavigationType.home] = HomePage();
     }

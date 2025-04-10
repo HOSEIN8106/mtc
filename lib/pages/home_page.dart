@@ -33,31 +33,29 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColor.accentColor,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(MtcApp.appDimens.mediumSpace),
-                      topRight: Radius.circular(MtcApp.appDimens.mediumSpace),
-                    ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColor.accentColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(MtcApp.appDimens.mediumSpace),
+                    topRight: Radius.circular(MtcApp.appDimens.mediumSpace),
                   ),
-                  child: Column(
-                    children: [
-                      Container(
-                        alignment: Alignment.centerRight,
-                        margin: EdgeInsets.all(MtcApp.appDimens.mediumSpace),
-                        child: Text(
-                          AppString.newsAndNotifications,
-                          style: TextStyle(color: AppColor.tDarkBlueColor, fontSize: MtcApp.appDimens.xMediumFontSize, fontWeight: FontWeight.bold),
-                        ),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.centerRight,
+                      margin: EdgeInsets.all(MtcApp.appDimens.mediumSpace),
+                      child: Text(
+                        AppString.newsAndNotifications,
+                        style: TextStyle(color: AppColor.tDarkBlueColor, fontSize: MtcApp.appDimens.xMediumFontSize, fontWeight: FontWeight.bold),
                       ),
-                      Container(
+                    ),
+                    Expanded(
+                      child: Container(
                         margin: EdgeInsets.symmetric(horizontal: MtcApp.appDimens.mediumSpace),
                         child: ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: 20,
+                          itemCount: 10,
                           itemBuilder: (context, index) {
                             return Container(
                               margin: EdgeInsets.only(bottom: MtcApp.appDimens.smallSpace),
@@ -84,8 +82,8 @@ class HomePage extends StatelessWidget {
                           },
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
