@@ -37,11 +37,11 @@ class MainPage extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.notifications,
-                  color: controller.isCurrentPage(BottomNavigationType.notification) ? (AppColor.primaryColor) : (AppColor.darkBlueColor),
+                  Icons.chat_bubble_sharp,
+                  color: controller.isCurrentPage(BottomNavigationType.chats) ? (AppColor.primaryColor) : (AppColor.darkBlueColor),
                   size: MtcApp.appDimens.mediumIconSize,
                 ),
-                label: AppString.notifications,
+                label: AppString.chats,
               ),
               BottomNavigationBarItem(
                 icon: Icon(

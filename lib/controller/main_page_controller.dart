@@ -17,7 +17,7 @@ class MainPageController extends GetxController {
   late Map<BottomNavigationType, Widget> bottomNavigationMap = {
     BottomNavigationType.lessonChart: LessonChartPage(),
     BottomNavigationType.classPlan: ClassPlanPage(),
-    BottomNavigationType.notification: NotificationsPage(),
+    BottomNavigationType.chats: NotificationsPage(),
     BottomNavigationType.home: HomePage(),
   };
 
@@ -34,8 +34,8 @@ class MainPageController extends GetxController {
       bottomNavigationMap[BottomNavigationType.lessonChart] = LessonChartPage(key: ValueKey(Random().nextInt(255)));
     } else if (currentPage == BottomNavigationType.classPlan.type) {
       bottomNavigationMap[BottomNavigationType.classPlan] = ClassPlanPage(key: ValueKey(Random().nextInt(255)));
-    } else if (currentPage == BottomNavigationType.notification.type) {
-      bottomNavigationMap[BottomNavigationType.notification] = NotificationsPage(key: ValueKey(Random().nextInt(255)));
+    } else if (currentPage == BottomNavigationType.chats.type) {
+      bottomNavigationMap[BottomNavigationType.chats] = NotificationsPage(key: ValueKey(Random().nextInt(255)));
     } else if (currentPage == BottomNavigationType.home.type) {
       bottomNavigationMap[BottomNavigationType.home] = HomePage();
     }

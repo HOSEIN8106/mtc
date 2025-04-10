@@ -1,7 +1,7 @@
 enum BottomNavigationType {
   lessonChart(0),
   classPlan(1),
-  notification(2),
+  chats(2),
   home(3);
 
   final int type;
