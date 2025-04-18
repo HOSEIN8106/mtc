@@ -10,4 +10,7 @@ class AppString{
   static const String associateDegree = "کاردانی";
   static const String bachelorsDegree = "کارشناسی";
   static const String academicChart = "چارت تحصیلی";
+  static const String timeToStartClassLessons = "زمان برگزاری کلاس‌های دروس";
+  static const String weeklyPlanForComputer = "برنامه هفتگی دروس رشته‌های کامپیوتر";
+  static const String search = "جستجو";
 }
