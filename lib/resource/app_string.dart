@@ -13,4 +13,7 @@ class AppString{
   static const String timeToStartClassLessons = "زمان برگزاری کلاس‌های دروس";
   static const String weeklyPlanForComputer = "برنامه هفتگی دروس رشته‌های کامپیوتر";
   static const String search = "جستجو";
+  static const String username = "نام کاربری";
+  static const String password = "رمز عبور";
+  static const String login = "ورود";
 }

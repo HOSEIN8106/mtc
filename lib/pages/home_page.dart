@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mtc/controller/home_page_controller.dart';
 import 'package:mtc/mtc_app.dart';
 import 'package:mtc/resource/app_color.dart';
 import 'package:mtc/resource/app_string.dart';
+import 'package:mtc/widgets/login_dialog.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  HomePageController controller = Get.find<HomePageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +24,19 @@ class HomePage extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.account_circle, size: MtcApp.appDimens.largeIconSize, color: Colors.white),
-                  SizedBox(width: MtcApp.appDimens.smallSpace),
-                  Text(AppString.goToPortal, style: TextStyle(color: Colors.white, fontSize: MtcApp.appDimens.mediumFontSize)),
+                  GestureDetector(
+                    onTap: () {
+                      controller.openLoginDialog();
+                    },
+                    child: Row(
+                      textDirection: TextDirection.rtl,
+                      children: [
+                        Icon(Icons.account_circle, size: MtcApp.appDimens.largeIconSize, color: Colors.white),
+                        SizedBox(width: MtcApp.appDimens.smallSpace),
+                        Text(AppString.goToPortal, style: TextStyle(color: Colors.white, fontSize: MtcApp.appDimens.mediumFontSize)),
+                      ],
+                    ),
+                  ),
                   Expanded(child: SizedBox()),
                   Container(
                     alignment: Alignment.centerLeft,
