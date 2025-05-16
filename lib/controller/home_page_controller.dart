@@ -4,6 +4,6 @@ import 'package:mtc/widgets/login_dialog.dart';
 
 class HomePageController extends GetxController {
   void openLoginDialog() {
-    Get.dialog(LoginDialog(), barrierDismissible: false);
+    Get.dialog(LoginDialog());
   }
 }

@@ -16,4 +16,7 @@ class AppString{
   static const String username = "نام کاربری";
   static const String password = "رمز عبور";
   static const String login = "ورود";
+  static const String lessonChartOfMe = "چارت درسی من";
+  static const String detailOfChart = "جزئیات چارت درسی";
+  static const String show = "مشاهده";
 }

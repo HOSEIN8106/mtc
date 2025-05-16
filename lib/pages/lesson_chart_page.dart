@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mtc/controller/lesson_chart_page_controller.dart';
 import 'package:mtc/mtc_app.dart';
 import 'package:mtc/resource/app_color.dart';
 import 'package:mtc/resource/app_string.dart';
 
 class LessonChartPage extends StatelessWidget {
-  const LessonChartPage({super.key});
+  LessonChartPage({super.key});
+
+  LessonChartPageController controller = Get.find<LessonChartPageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +19,38 @@ class LessonChartPage extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.all(MtcApp.appDimens.mediumSpace),
-              child: Column(
+              child: Row(
                 textDirection: TextDirection.rtl,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text(
-                      AppString.timeToStartClassLessons,
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.xMediumFontSize),
-                    ),
+                  Column(
+                    textDirection: TextDirection.rtl,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Text(
+                          AppString.timeToStartClassLessons,
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.xMediumFontSize),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          AppString.weeklyPlanForComputer,
+                          style: TextStyle(color: Colors.white, fontSize: MtcApp.appDimens.xRegularFontSize),
+                        ),
+                      ),
+                    ],
                   ),
-                  Center(
-                    child: Text(AppString.weeklyPlanForComputer, style: TextStyle(color: Colors.white, fontSize: MtcApp.appDimens.xRegularFontSize)),
+                  Expanded(child: SizedBox()),
+                  Row(
+                    textDirection: TextDirection.rtl,
+                    children: [
+                      Text(
+                        AppString.lessonChartOfMe,
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.xRegularFontSize),
+                      ),
+                      SizedBox(width: MtcApp.appDimens.smallSpace),
+                      Icon(Icons.contact_page_rounded, color: Colors.white),
+                    ],
                   ),
                 ],
               ),
@@ -142,7 +166,7 @@ class LessonChartPage extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: MtcApp.appDimens.smallSpace,),
+                                          SizedBox(height: MtcApp.appDimens.smallSpace),
                                           Row(
                                             textDirection: TextDirection.rtl,
                                             children: [
@@ -169,23 +193,35 @@ class LessonChartPage extends StatelessWidget {
                                                 ),
                                               ),
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
                                     Expanded(
                                       flex: 2,
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(horizontal: MtcApp.appDimens.xSmallSpace, vertical: MtcApp.appDimens.tinySpace),
-                                        decoration: BoxDecoration(
-                                          color: AppColor.bGreenColor,
-                                          borderRadius: BorderRadius.circular(MtcApp.appDimens.smallSpace),
-                                        ),
-                                        child: Text(
-                                          "مشاهده",
-                                          textAlign: TextAlign.center,
-                                          textDirection: TextDirection.rtl,
-                                          style: TextStyle(color: Colors.white, fontSize: MtcApp.appDimens.mediumFontSize, fontWeight: FontWeight.bold),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          controller.openDetailLessonChartBottomSheet();
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: MtcApp.appDimens.xSmallSpace,
+                                            vertical: MtcApp.appDimens.tinySpace,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: AppColor.bGreenColor,
+                                            borderRadius: BorderRadius.circular(MtcApp.appDimens.smallSpace),
+                                          ),
+                                          child: Text(
+                                            AppString.show,
+                                            textAlign: TextAlign.center,
+                                            textDirection: TextDirection.rtl,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: MtcApp.appDimens.mediumFontSize,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
