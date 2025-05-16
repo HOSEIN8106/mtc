@@ -5,8 +5,8 @@ import 'package:mtc/mtc_app.dart';
 import 'package:mtc/resource/app_color.dart';
 import 'package:mtc/resource/app_string.dart';
 
-class ClassSchedulePage extends StatelessWidget {
-  ClassSchedulePage({super.key});
+class MyClassSchedulePage extends StatelessWidget {
+  MyClassSchedulePage({super.key});
 
   ClassSchedulePageController controller = Get.find<ClassSchedulePageController>();
 
@@ -22,39 +22,20 @@ class ClassSchedulePage extends StatelessWidget {
               child: Row(
                 textDirection: TextDirection.rtl,
                 children: [
-                  Column(
-                    textDirection: TextDirection.rtl,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Text(
-                          AppString.timeToStartClassLessons,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.xMediumFontSize),
-                        ),
-                      ),
-                      Center(
-                        child: Text(
-                          AppString.weeklyPlanForComputer,
-                          style: TextStyle(color: Colors.white, fontSize: MtcApp.appDimens.xRegularFontSize),
-                        ),
-                      ),
-                    ],
+                  Center(
+                    child: Text(
+                      AppString.myClassSchedule,
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.xMediumFontSize),
+                    ),
                   ),
                   Expanded(child: SizedBox()),
                   GestureDetector(
                     onTap: () {
-                      controller.openMyClassSchedulePage();
+                      Get.back();
                     },
-                    child: Row(
-                      textDirection: TextDirection.rtl,
-                      children: [
-                        Text(
-                          AppString.myClassSchedule,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.xRegularFontSize),
-                        ),
-                        SizedBox(width: MtcApp.appDimens.smallSpace),
-                        Icon(Icons.contact_page_rounded, color: Colors.white),
-                      ],
+                    child: Padding(
+                      padding: EdgeInsets.only(right: MtcApp.appDimens.mediumSpace),
+                      child: Icon(Icons.arrow_back_ios_new_outlined, color: Colors.white),
                     ),
                   ),
                 ],
