@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mtc/enumerations/bottom_navigation_type.dart';
 import 'package:mtc/mtc_app.dart';
-import 'package:mtc/pages/class_plan_page.dart';
+import 'package:mtc/pages/academic_chart_page.dart';
 import 'package:mtc/pages/home_page.dart';
-import 'package:mtc/pages/lesson_chart_page.dart';
+import 'package:mtc/pages/class_schedule_page.dart';
 import 'package:mtc/pages/chats_page.dart';
 import 'package:mtc/resource/constant.dart';
 
@@ -15,8 +15,8 @@ class MainPageController extends GetxController {
   DateTime? currentBackPressTime;
 
   late Map<BottomNavigationType, Widget> bottomNavigationMap = {
-    BottomNavigationType.lessonChart: LessonChartPage(),
-    BottomNavigationType.classPlan: ClassPlanPage(),
+    BottomNavigationType.classSchedule: ClassSchedulePage(),
+    BottomNavigationType.academicChart: AcademicChartPage(),
     BottomNavigationType.chats: ChatsPage(),
     BottomNavigationType.home: HomePage(),
   };
@@ -30,10 +30,10 @@ class MainPageController extends GetxController {
   }
 
   void selectPage(int currentPage) {
-    if (currentPage == BottomNavigationType.lessonChart.type) {
-      bottomNavigationMap[BottomNavigationType.lessonChart] = LessonChartPage(key: ValueKey(Random().nextInt(255)));
-    } else if (currentPage == BottomNavigationType.classPlan.type) {
-      bottomNavigationMap[BottomNavigationType.classPlan] = ClassPlanPage(key: ValueKey(Random().nextInt(255)));
+    if (currentPage == BottomNavigationType.classSchedule.type) {
+      bottomNavigationMap[BottomNavigationType.classSchedule] = ClassSchedulePage(key: ValueKey(Random().nextInt(255)));
+    } else if (currentPage == BottomNavigationType.academicChart.type) {
+      bottomNavigationMap[BottomNavigationType.academicChart] = AcademicChartPage(key: ValueKey(Random().nextInt(255)));
     } else if (currentPage == BottomNavigationType.chats.type) {
       bottomNavigationMap[BottomNavigationType.chats] = ChatsPage(key: ValueKey(Random().nextInt(255)));
     } else if (currentPage == BottomNavigationType.home.type) {

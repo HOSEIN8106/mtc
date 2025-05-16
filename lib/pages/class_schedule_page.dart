@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mtc/controller/lesson_chart_page_controller.dart';
+import 'package:mtc/controller/class_schedule_page_controller.dart';
 import 'package:mtc/mtc_app.dart';
 import 'package:mtc/resource/app_color.dart';
 import 'package:mtc/resource/app_string.dart';
 
-class LessonChartPage extends StatelessWidget {
-  LessonChartPage({super.key});
+class ClassSchedulePage extends StatelessWidget {
+  ClassSchedulePage({super.key});
 
-  LessonChartPageController controller = Get.find<LessonChartPageController>();
+  ClassSchedulePageController controller = Get.find<ClassSchedulePageController>();
 
   @override
   Widget build(BuildContext context) {

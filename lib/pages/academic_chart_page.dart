@@ -6,8 +6,8 @@ import 'package:mtc/resource/app_dimens.dart';
 import 'package:mtc/resource/app_string.dart';
 import 'package:mtc/resource/constant.dart';
 
-class ClassPlanPage extends StatelessWidget {
-  const ClassPlanPage({super.key});
+class AcademicChartPage extends StatelessWidget {
+  const AcademicChartPage({super.key});
 
   @override
   Widget build(BuildContext context) {

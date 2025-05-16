@@ -22,18 +22,18 @@ class MainPage extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.insert_chart,
-                  color: controller.isCurrentPage(BottomNavigationType.lessonChart) ? (AppColor.primaryColor) : (AppColor.darkBlueColor),
+                  color: controller.isCurrentPage(BottomNavigationType.classSchedule) ? (AppColor.primaryColor) : (AppColor.darkBlueColor),
                   size: MtcApp.appDimens.mediumIconSize,
                 ),
-                label: AppString.lessonChart,
+                label: AppString.classSchedule,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.class_,
-                  color: controller.isCurrentPage(BottomNavigationType.classPlan) ? (AppColor.primaryColor) : (AppColor.darkBlueColor),
+                  color: controller.isCurrentPage(BottomNavigationType.academicChart) ? (AppColor.primaryColor) : (AppColor.darkBlueColor),
                   size: MtcApp.appDimens.mediumIconSize,
                 ),
-                label: AppString.classPlan,
+                label: AppString.academicChart,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
