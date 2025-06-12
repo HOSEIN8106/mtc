@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mtc/api/models/lesson_response.dart';
 import 'package:mtc/mtc_app.dart';
 import 'package:mtc/resource/app_color.dart';
 import 'package:mtc/resource/app_string.dart';
+import 'package:mtc/utils/utils.dart';
 
 class ClassScheduleDetailBottomSheet extends StatelessWidget {
-  const ClassScheduleDetailBottomSheet({super.key});
+  final LessonsResponse lessonsResponse;
+
+  const ClassScheduleDetailBottomSheet({super.key, required this.lessonsResponse});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: MtcApp.appDimens.mediumSpace,bottom: MtcApp.appDimens.mediumSpace),
+            margin: EdgeInsets.only(top: MtcApp.appDimens.mediumSpace, bottom: MtcApp.appDimens.mediumSpace),
             child: Stack(
               children: [
                 Center(
@@ -41,11 +45,7 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
-            height: MtcApp.appDimens.dividerHeight,
-            color: AppColor.gray100Color,
-            thickness: MtcApp.appDimens.dividerHeight,
-          ),
+          Divider(height: MtcApp.appDimens.dividerHeight, color: AppColor.gray100Color, thickness: MtcApp.appDimens.dividerHeight),
           Padding(
             padding: EdgeInsets.all(MtcApp.appDimens.mediumSpace),
             child: Column(
@@ -58,13 +58,13 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         children: [
                           Text(
-                            "کد ارائه :",
+                            "کد ارائه : ",
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "705441",
+                            Utils.replaceDashToNull(lessonsResponse.courseOfferingCode),
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
@@ -77,13 +77,13 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         children: [
                           Text(
-                            "کد درس :",
+                            "کد درس : ",
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "705021",
+                            Utils.replaceDashToNull(lessonsResponse.code),
                             style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
                           ),
                         ],
@@ -96,14 +96,14 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   children: [
                     Text(
-                      "عنوان درس :",
+                      "عنوان درس : ",
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.right,
                       style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                     ),
                     Flexible(
                       child: Text(
-                        "انديشه اسلامي(2) (نبوت و امامت)",
+                        Utils.replaceDashToNull(lessonsResponse.title),
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.right,
                         style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
@@ -117,13 +117,13 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "نام استاد :",
+                      "نام استاد : ",
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.right,
                       style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      "حبيب اله وظيفه مندرودپشتي",
+                      Utils.replaceDashToNull(lessonsResponse.instructor?.name),
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.right,
                       style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
@@ -136,14 +136,14 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "شماره کلاس :",
+                      "شماره کلاس : ",
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.right,
                       style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                     ),
                     Flexible(
                       child: Text(
-                        "كلاس 1302 طبقه سوم ساختمان آموزشي- كارگاه كامپيوتر | كلاس 1302 طبقه سوم ساختمان آموزشي- كارگاه كامپي",
+                        Utils.replaceDashToNull(lessonsResponse.classroomNumber),
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.right,
                         style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
@@ -162,17 +162,21 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "زمان ارائه :",
+                            "زمان ارائه : ",
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                           ),
                           Flexible(
                             child: Text(
-                              "11:00 تا 14:00 | 14:00 تا 15:00",
+                              Utils.replaceDashToNull(lessonsResponse.offeringTime),
                               textDirection: TextDirection.rtl,
                               textAlign: TextAlign.right,
-                              style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
+                              style: TextStyle(
+                                color: AppColor.tDarkBlueColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: MtcApp.appDimens.mediumFontSize,
+                              ),
                             ),
                           ),
                         ],
@@ -183,13 +187,13 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         children: [
                           Text(
-                            "روز ارائه :",
+                            "روز ارائه : ",
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "چهارشنبه",
+                            Utils.replaceDashToNull(lessonsResponse.offeringDay),
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
@@ -209,13 +213,13 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         children: [
                           Text(
-                            "تعداد دانشجو :",
+                            "تعداد دانشجو : ",
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "55",
+                            Utils.replaceDashToNull(lessonsResponse.studentsCount.toString()),
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),
@@ -228,13 +232,13 @@ class ClassScheduleDetailBottomSheet extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         children: [
                           Text(
-                            "تاریخ امتحان :",
+                            "تاریخ امتحان : ",
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tGrayColor, fontSize: MtcApp.appDimens.xRegularFontSize, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "1403/10/29",
+                            Utils.replaceDashToNull(lessonsResponse.examDate),
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(color: AppColor.tDarkBlueColor, fontWeight: FontWeight.bold, fontSize: MtcApp.appDimens.mediumFontSize),

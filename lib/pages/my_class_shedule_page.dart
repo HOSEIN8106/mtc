@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mtc/controller/class_schedule_page_controller.dart';
+import 'package:mtc/controller/my_class_schedule_page_controller.dart';
 import 'package:mtc/mtc_app.dart';
 import 'package:mtc/resource/app_color.dart';
 import 'package:mtc/resource/app_string.dart';
@@ -8,7 +9,7 @@ import 'package:mtc/resource/app_string.dart';
 class MyClassSchedulePage extends StatelessWidget {
   MyClassSchedulePage({super.key});
 
-  ClassSchedulePageController controller = Get.find<ClassSchedulePageController>();
+  MyClassSchedulePageController controller = Get.find<MyClassSchedulePageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +188,7 @@ class MyClassSchedulePage extends StatelessWidget {
                                       flex: 2,
                                       child: GestureDetector(
                                         onTap: () {
-                                          controller.openDetailLessonChartBottomSheet();
+                                          // controller.openDetailLessonChartBottomSheet();
                                         },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(
